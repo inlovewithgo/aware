@@ -116,7 +116,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
     }
 
     if m.Content == ",help" {
-        helpMessage := fmt.Sprintf("<@%s> visit https://aware.wtf/help , for support join https://aware.wtf/discord", m.Author.ID)
+        helpMessage := fmt.Sprintf("<@%s> https://aware.wtf/help", m.Author.ID)
         s.ChannelMessageSend(m.ChannelID, helpMessage)
     }
 }
