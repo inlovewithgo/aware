@@ -3,6 +3,7 @@ package main
 import (
     "fmt"
     "log"
+    "time"
     "os"
     "os/signal"
 
@@ -119,4 +120,15 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
         helpMessage := fmt.Sprintf("<@%s> https://aware.wtf/help", m.Author.ID)
         s.ChannelMessageSend(m.ChannelID, helpMessage)
     }
+
+    if m.Content == ",ping" {
+        msgTime := m.Timestamp
+        
+        latency := time.Since(msgTime).Milliseconds()
+        wsLatency := s.HeartbeatLatency().Milliseconds()
+        
+        pingMessage := fmt.Sprintf("🏓 Pong!\n⏱️ API Latency: %dms\n📡 WebSocket: %dms", latency, wsLatency)
+        s.ChannelMessageSend(m.ChannelID, pingMessage)
+    }
+    
 }
