@@ -44,7 +44,7 @@ func main() {
 
     antinuke.InitAntinuke(db)
 
-    dg, err := discordgo.New("Bot " + "MTM0MTA3NjY5MjMwNjc1NTYwNQ.GCncNe.Rmd15Qr4bvfJE2y7Yjkd9RYbVcSZqsdUnKzH58")
+    dg, err := discordgo.New("Bot " + "")
     if err != nil {
         log.Fatal("Error creating Discord session: ", err)
     }
